@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+  backend:
+    container_name: backend
+    build: 
+      context: backend
+      dockerfile: Dockerfile
+    image: compose-backend
+    ports:
+      - 4000:3001
+    env_file: 
+      - .env
+
+frontend:
+    container_name: frontend
+    build: 
+      context: frontend
+      dockerfile: Dockerfile
+    image: compose-frontend
+    ports:
+      - 8081:80
+
+postgres:
+    container_name: postgres
+    ports:
+      - 4000:3001
+    image: postgres
+    env_file: 
+      - .env
+    volumes: 
+      - bd_postgres:/data/postgres
+
+volumes: 
+      bd_postgres:   
