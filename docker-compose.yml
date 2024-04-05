@@ -12,7 +12,7 @@ services:
     env_file: 
       - .env
 
-frontend:
+  frontend:
     container_name: frontend
     build: 
       context: frontend
@@ -20,8 +20,10 @@ frontend:
     image: compose-frontend
     ports:
       - 8081:80
+    env_file: 
+      - .env
 
-postgres:
+  postgres:
     container_name: postgres
     ports:
       - 4000:3001
