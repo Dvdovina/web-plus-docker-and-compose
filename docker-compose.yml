@@ -8,7 +8,7 @@ services:
       dockerfile: Dockerfile
     image: compose-backend
     ports:
-      - 4000:3001
+      - 4000:3000
     env_file: 
       - .env
 
@@ -25,8 +25,6 @@ services:
 
   postgres:
     container_name: postgres
-    ports:
-      - 4000:3001
     image: postgres
     env_file: 
       - .env
